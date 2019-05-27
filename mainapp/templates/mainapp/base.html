@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%block title%}
+    <title>Книжный червь</title>
+    {%endblock%}
+    {%block css%}
+    <link rel="stylesheet" href="/static/css/styles.css">
+    {%endblock%}
+    {%block js%}
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+    {%endblock%}
+</head>
+<body>
+{%block header%}
+{%endblock%}
+<ul class="topnav">
+    <li><a class="active" href="{%url 'index'%}">Книжный червь</a></li>
+    <li><a href="{%url 'categories'%}">Категории</a></li>
+    <li><a href="{%url 'Interesting_facts_in_the_world_of_books'%}">Факты</a></li>
+    <li><a href="{%url 'Recently_published_books'%}">Вышедшие книги</a></li>
+    <li><a href="{%url 'The_authors'%}">Авторы</a></li>
+    <li><a href="{%url 'Top_interesting_authors'%}">Топ авторов</a></li>
+    <li><a href="{%url 'Top_interesting_books'%}">Топ книг</a></li>
+    {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:edit' %}">
+                {{user.first_name|default:"пользователь"}}
+            </a></li>
+
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'auth:logout' %}">Выход</a></li>
+            <!--<a href="{% url 'auth:logout' %}">Профиль</a>-->
+            {% else %}
+            <li><a href="{% url 'auth:login' %}">Вход</a></li>
+    {% endif %}
+</ul>
+<div class="content">
+{%block content%}
+{%endblock%}
+
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Chat</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="msg" required></textarea>
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+</div>
+{%block footer%}
+<footer><p>&#169;KPK 2018</p></footer>
+{%endblock%}
+</body>
+</html>

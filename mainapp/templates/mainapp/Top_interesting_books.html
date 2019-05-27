@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html'%}
+
+{% block title %}
+    <title>Топ книг</title>
+{% endblock %}
+
+{% block content %}
+<div class="interesting_books">
+    <h1>Здесь будет топ интересных книг</h1>
+    <ul>
+        {% for interesting_book in interesting_books %}
+            <li>
+                {{interesting_book.title}}
+                    <ul style="list-style-type: square">
+                        <li id="interesting_books"></li>
+                    </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
