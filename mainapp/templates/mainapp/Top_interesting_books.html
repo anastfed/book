@@ -6,14 +6,14 @@
 
 {% block content %}
 <div class="interesting_books">
-    <h1>Здесь будет топ интересных книг</h1>
+    <h1>Топ интересных книг</h1>
+
+    <h4>Топ – 5 бестеллеров 2020 год</h4>
     <ul>
         {% for interesting_book in interesting_books %}
             <li>
                 {{interesting_book.title}}
-                    <ul style="list-style-type: square">
-                        <li id="interesting_books"></li>
-                    </ul>
+
             </li>
         {% endfor %}
     </ul>

@@ -6,14 +6,13 @@
 
 {% block content %}
 <div class="published_books">
-    <h1>Здесь будут недавно вышедшие книги</h1>
+    <h1>Недавно вышедшие книги</h1>
+
+    <h3>Книги за май-июнь 2020 года</h3>
     <ul>
         {% for published_book in published_books %}
             <li>
-                {{published_book.title}}
-                    <ul style="list-style-type: square">
-                        <li id="Published_books"></li>
-                    </ul>
+                {{published_book.title}} {{published_book.content}}
             </li>
         {% endfor %}
     </ul>

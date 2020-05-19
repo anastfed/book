@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Регистрация</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/auth_styles.css">
+    <link rel="stylesheet" href="/static/css/auth_styles .css">
 </head>
 <body>
 <div class="login-form">
@@ -13,9 +13,11 @@
         <div class="h2 text-center">
             Регистрация пользователя
         </div>
+            <!--<img src="/static/jmg/user_avatar.png" alt="Аватарка" class="avatar">-->
         {% csrf_token %}
         {{ register_form.as_p }}
         <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+        <button type="submit" class="btn btn-success"><a href="{% url 'index'%}">Не зарегистрироваться</a></button>
     </form>
 </div>
 </body>

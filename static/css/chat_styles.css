@@ -1,0 +1,27 @@
+.chat-window {
+    width: 70%;
+    margin: 100px auto auto 200px;
+    background-color: yellow;
+    padding: 30px;
+}
+
+.send-message{
+    border-radius: 5px;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.recieved-message{
+    border-radius: 5px;
+    width: 100%;
+    padding-right: 5px;
+}
+.message-created {
+    font-size: 10pt;
+    color: qrey;
+}
+
+.recipient-name {
+    margin: 10px;
+    text-color: #ffccb3;
+}

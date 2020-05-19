@@ -2,12 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {%block title%}
-    <title>Книжный червь</title>
+    <title>Читалочка</title>
     {%endblock%}
     {%block css%}
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/fontawesome-free-5.11.2-web/css/all.min.css">
     {%endblock%}
     {%block js%}
     <script src="/static/js/jquery-3.3.1.min.js"></script>
@@ -16,49 +19,56 @@
 </head>
 <body>
 {%block header%}
-{%endblock%}
-<ul class="topnav">
-    <li><a class="active" href="{%url 'index'%}">Книжный червь</a></li>
-    <li><a href="{%url 'categories'%}">Категории</a></li>
-    <li><a href="{%url 'Interesting_facts_in_the_world_of_books'%}">Факты</a></li>
-    <li><a href="{%url 'Recently_published_books'%}">Вышедшие книги</a></li>
-    <li><a href="{%url 'The_authors'%}">Авторы</a></li>
-    <li><a href="{%url 'Top_interesting_authors'%}">Топ авторов</a></li>
-    <li><a href="{%url 'Top_interesting_books'%}">Топ книг</a></li>
+<nav>
+  <ul class="topmenu">
+    <li><a href="{%url 'index'%}">Читалочка</a></li>
+      <li><a href="{%url 'Top_interesting_books'%}">Топ книг</a></li>
+    <li><a href="{%url 'Bookstore'%}" class="down">Магазин</a>
+      <ul class="submenu">
+        <li><a href="{%url 'delivery'%}">Доставка/Оплата</a></li>
+        <li><a href="{%url 'product'%}">Товар</a></li>
+          <li><a href="{%url 'categories'%}">Категории</a></li>
+        <li><a href="{%url 'Recently_published_books'%}">Вышедшие книги</a></li>
+      </ul>
+    </li>
+    <li><a href="{%url 'The_authors'%}" class="down">Авторы</a>
+      <ul class="submenu">
+        <li><a href="{%url 'Top_interesting_authors'%}">Топ авторов</a></li>
+        <li><a href="{%url 'Interesting_facts_in_the_world_of_books'%}">Факты</a></li>
+      </ul>
+    </li>
+    <li><a href="{%url 'we'%}">О нас</a></li>
+
+         {% if user.avatar %}
+        <img src="{{ user.avatar.url }}" id="user_avatar">
+        {% endif %}
+
     {% if user.is_authenticated %}
-            <li><a href="{% url 'auth:edit' %}">
+            <a href="{% url 'auth:edit' %}">
                 {{user.first_name|default:"пользователь"}}
-            </a></li>
+            </a>
 
             {% endif %}
             {% if user.is_authenticated %}
-            <li><a href="{% url 'auth:logout' %}">Выход</a></li>
-            <!--<a href="{% url 'auth:logout' %}">Профиль</a>-->
+           <a href="{% url 'auth:logout' %}">Выход</a>
             {% else %}
-            <li><a href="{% url 'auth:login' %}">Вход</a></li>
+            <a href="{% url 'auth:login' %}">Вход</a>
+            <a href="{% url 'auth:register' %}">Регистрация</a>
     {% endif %}
-</ul>
+  </ul>
+</nav>
+<!--<div id="up"><p class="pPageScroll">Вверх</p></div>-->
+<!--<div id="down"><p class="pPageScroll">Вниз</p></div>-->
+{%endblock%}
 <div class="content">
 {%block content%}
 {%endblock%}
-
-
-<button class="open-button" onclick="openForm()">Chat</button>
-
-<div class="chat-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
-    <h1>Chat</h1>
-
-    <label for="msg"><b>Message</b></label>
-    <textarea placeholder="Type message.." name="msg" required></textarea>
-
-    <button type="submit" class="btn">Send</button>
-    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
 </div>
-</div>
+
 {%block footer%}
-<footer><p>&#169;KPK 2018</p></footer>
+<footer>
+    <p>&#169;KPK 2020</p>
+</footer>
 {%endblock%}
 </body>
 </html>

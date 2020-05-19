@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Редактирование</title>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/auth_styles.css">
+    <link rel="stylesheet" href="/static/css/auth_styles .css">
 </head>
 <body>
 <div class="login-form">
@@ -15,8 +15,8 @@
         </div>
         {% csrf_token %}
         {{ edit_form.as_p }}
-        <button type="submit" class="btn btn-success">Сохранить</button>
-        <button type="submit" class="btn btn-success"><a class="a" href="{% url 'index' %}">На главную</a></button>
+        <button type="button" class="btn btn-success">Сохранить</button>
+        <button type="submit" class="btn btn-success"><a href="{% url 'index'%}">На главную</a></button>
     </form>
 </div>
 </body>

@@ -1,0 +1,23 @@
+{% extends 'mainapp/base.html'%}
+
+{% block content %}
+<div class="content">
+    <div class="products"></div>
+    <div class="cart">
+        <div class="cart-title">
+            <span class="text-bold cart-name">Корзина:</span>
+            <span class="cart-score">0</span>
+        </div>
+        <div class="cart-products">
+
+        </div>
+        <div class="checkout">
+            <form name="form" method="POST" action="{% url 'robokassa:popoln' %}">
+    {% csrf_token %}
+    <input class="checkout" type="submit" name="submit" value="Оформить заказ ₽"/>
+</form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

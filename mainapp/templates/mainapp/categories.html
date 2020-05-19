@@ -9,24 +9,27 @@
 	<ul>
 		{% for book_category in book_categories %}
 			<li>
-				{{book_category.name}} (возрасное ограничение {{book_category.min_age}} лет)
-				<ul style="list-style-type:square">
-					<li id="book_categories"></li>
-				</ul>
+				<span id="category-{{bookCategories.pk}}">
+					{{book_category.name}} </span>
+					(возрасное ограничение {{book_category.min_age}} лет)
 			</li>
     	{% endfor %}
+		<div class="book_description col-lg-8"></div>
 	</ul>
 </div>
+
 <div class="books">
 	<h1>У нас есть следующие книги:</h1>
 		<ul>
 			{% for book in books%}
-				 {{book.title}} {{book.price}} руб. за книгу
-			<ul style="list-style-type:square">
-				<li id="books"></li>
-			</ul>
+				 <li id="book-{{book.pk}}">
+					 {{book.title}}</li>
+					{{book.price}} руб. за книгу
 			{%endfor%}
 		</ul>
+	<div class="book_categories_description col-lg-8"></div>
 </div>
 
 {% endblock %}
+<div class="active-talk"></div>
+<div class="send-message-form"></div>
