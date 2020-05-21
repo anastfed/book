@@ -12,10 +12,14 @@
 
         </div>
         <div class="checkout">
-            <form name="form" method="POST" action="{% url 'robokassa:popoln' %}">
-    {% csrf_token %}
-    <input class="checkout" type="submit" name="submit" value="Оформить заказ ₽"/>
-</form>
+            <form action="{{ form.target }}" method="POST">
+                <p>{{ form.as_p }}</p>
+                <p><input type="submit" value="Купить"></p>
+            </form>
+            <!--<form name="form" method="POST" action="">-->
+            <!--{% csrf_token %}-->
+            <!--<input class="checkout" type="submit" name="submit" value="Оформить заказ ₽"/>-->
+            <!--</form>-->
         </div>
     </div>
 </div>

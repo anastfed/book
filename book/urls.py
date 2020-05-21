@@ -20,6 +20,7 @@ import mainapp.views as mainapp
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('', mainapp.index, name='index'),
     path('categories/', mainapp.categories, name='categories'),
@@ -33,6 +34,10 @@ urlpatterns = [
     path('product/', mainapp.product, name='product'),
     path('we/', mainapp.we, name='we'),
 
+    re_path(r'^error/$', mainapp.error, name='error'),
+    re_path(r'^fail/$', mainapp.fail, name='fail'),
+    re_path(r'^success/$', mainapp.success, name='success'),
+
 
     re_path('^categories/book/(\d+)/ajax/$', mainapp.categories_book_ajax),
     re_path('^categories/book-categories/(\d+)/ajax/$', mainapp.bookCategories_ajax),
@@ -41,7 +46,8 @@ urlpatterns = [
 
     re_path('^auth/', include('authorization.urls', namespace='auth')),
     re_path('^map5/', include('chatapp.urls', namespace='chat')),
-    re_path('^rkassa/', include('robokassa.urls', namespace='rkassa'))
+    re_path('^robokassa/', include('robokassa.urls', namespace='robokassa')),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

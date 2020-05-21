@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'mainapp',
     'authorization',
     'chatapp',
-    'robokassa',
+    'robokassa'
+
 ]
 
 AUTH_USER_MODEL = 'authorization.ParkUser'
@@ -131,10 +132,8 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-ROBOKASSA_LOGIN = 'логин'
-ROBOKASSA_PASSWORD1 = 'пароль1'
-ROBOKASSA_PASSWORD2 = 'пароль2'
-
+ROBOKASSA_LOGIN = 'test_логин'
+ROBOKASSA_PASSWORD1 = 'test_пароль1'
+ROBOKASSA_PASSWORD2 = 'test_пароль2'
 ROBOKASSA_TEST_MODE = True
-
 ROBOKASSA_TEST_FORM_TARGET = True
